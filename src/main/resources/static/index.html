@@ -1,0 +1,167 @@
+<!Doctype html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <title>CPU Scheduling Simulator</title>
+
+    <!-- CSS modules -->
+    <link rel="stylesheet" href="css/base.css">
+    <link rel="stylesheet" href="css/layout.css">
+    <link rel="stylesheet" href="css/modal.css">
+    <link rel="stylesheet" href="css/process.css">
+    <link rel="stylesheet" href="css/gantt.css">
+    <link rel="stylesheet" href="css/table.css">
+    <link rel="stylesheet" href="css/averages.css">
+    <link rel="stylesheet" href="css/compare.css">
+    <link rel="stylesheet" href="css/theme.css">
+    <link rel="stylesheet" href="css/recents.css">
+
+    <script type="module" src="js/main.js"></script>
+</head>
+<body>
+
+<button id="btn-hamburger" title="Recent Runs">☰</button>
+
+<div id="recents-overlay"></div>
+
+<div id="recents-sidebar">
+    <div class="recents-header">
+        <h2>⏱ Recent Runs</h2>
+        <button id="btn-close-recents" title="Close">✕</button>
+    </div>
+    <div id="recents-list"></div>
+    <div class="recents-footer">
+        <button id="btn-clear-recents">Clear All</button>
+    </div>
+</div>
+
+<div id="theme-switcher">
+    <button class="theme-btn theme-btn-active" data-theme="light">☀️ Light</button>
+    <button class="theme-btn" data-theme="dark">🌑 Dark</button>
+    <button class="theme-btn" data-theme="blue">🔵 Blue</button>
+</div>
+
+<h1>CPU Scheduling Simulator</h1>
+
+<div id="algorithmSelector">
+
+    <!-- Mode toggle -->
+    <div id="mode-toggle">
+        <button id="btn-single"  class="mode-btn mode-btn-active">Single</button>
+        <button id="btn-compare" class="mode-btn">Compare</button>
+    </div>
+
+    <!-- Single mode: one dropdown -->
+    <div id="single-controls">
+        <label for="algorithm">Algorithm:</label>
+        <select id="algorithm">
+            <option value="FCFS">FCFS</option>
+            <option value="SJF">SJF</option>
+            <option value="SRTF">SRTF</option>
+            <option value="RR">RR</option>
+            <option value="Priority">Priority</option>
+        </select>
+    </div>
+
+    <!-- Compare mode: checkboxes -->
+    <div id="compare-controls">
+        <span class="compare-label">Algorithms:</span>
+        <label class="algo-checkbox"><input type="checkbox" value="FCFS"     checked> FCFS</label>
+        <label class="algo-checkbox"><input type="checkbox" value="SJF"      checked> SJF</label>
+        <label class="algo-checkbox"><input type="checkbox" value="SRTF">             SRTF</label>
+        <label class="algo-checkbox"><input type="checkbox" value="RR">               RR</label>
+        <label class="algo-checkbox"><input type="checkbox" value="Priority">          Priority</label>
+    </div>
+
+    <!-- Quantum (shown for RR in either mode) -->
+    <div id="quantum-group">
+        <label for="quantum">Quantum:</label>
+        <input type="number" id="quantum" min="1" max="99" value="2">
+    </div>
+
+    <button id="run-algorithm">Run</button>
+</div>
+
+<!-- Process List -->
+<div id="process-container">
+    <h3>Processes</h3>
+    <div id="process-list"></div>
+    <button id="btn-open-modal" class="btn-add-process">+ Add Process</button>
+    <div class="random-controls">
+        <label for="random-count">Count:</label>
+        <input type="number" id="random-count" min="1" max="20" value="5">
+        <button id="btn-generate-random" class="btn-random">🎲 Generate Random</button>
+    </div>
+</div>
+
+<!-- Add Process Modal -->
+<div id="modal">
+    <div id="modal-box">
+        <h2>Add new Process</h2>
+        <div class="modal-field">
+            <label for="arrival-time">Arrival Time</label>
+            <input type="number" id="arrival-time" placeholder="e.g. 0" min="0" max="99">
+        </div>
+        <div class="modal-field">
+            <label for="burst-time">Burst Time</label>
+            <input type="number" id="burst-time" placeholder="e.g. 5" min="1" max="99">
+        </div>
+        <div class="modal-field">
+            <label for="priority">Priority <span style="font-weight:400">(optional)</span></label>
+            <input type="number" id="priority" placeholder="e.g. 1" min="0" max="99">
+        </div>
+        <p class="error" id="modal-error"></p>
+        <div class="modal-buttons">
+            <button id="btn-add-process" class="btn-add">Add</button>
+            <button id="btn-cancel" class="btn-cancel">Cancel</button>
+        </div>
+    </div>
+</div>
+
+<!-- Single-mode Results -->
+<div id="results">
+    <h2>Results</h2>
+
+    <h3>Gantt Chart</h3>
+    <div id="gantt-chart"></div>
+
+    <h3>Process Table</h3>
+    <table>
+        <thead>
+            <tr>
+                <th>Process</th>
+                <th>Arrival Time</th>
+                <th>Burst Time</th>
+                <th>Priority</th>
+                <th>Waiting Time</th>
+                <th>Turnaround Time</th>
+            </tr>
+        </thead>
+        <tbody id="process-table-body"></tbody>
+    </table>
+
+    <div id="averages"></div>
+</div>
+
+<!-- Compare-mode Results -->
+<div id="comparison-results">
+    <h2>Comparison Results</h2>
+
+    <h3>Summary</h3>
+    <table id="comparison-summary-table">
+        <thead>
+            <tr>
+                <th>Algorithm</th>
+                <th>Avg Waiting Time</th>
+                <th>Avg Turnaround Time</th>
+                <th>Throughput</th>
+            </tr>
+        </thead>
+        <tbody id="comparison-summary-body"></tbody>
+    </table>
+
+    <div id="comparison-charts"></div>
+</div>
+
+</body>
+</html>

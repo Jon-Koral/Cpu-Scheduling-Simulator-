@@ -1,0 +1,86 @@
+.process-card {
+    display: flex;
+    gap: 12px;
+    align-items: center;
+    background: var(--surface-alt);
+    border: 1.5px solid var(--border-color);
+    border-radius: 8px;
+    padding: 10px 14px;
+    margin-bottom: 8px;
+    font-size: 14px;
+}
+
+.p-badge {
+    width: 30px; height: 30px;
+    border-radius: 6px;
+    display: flex; align-items: center; justify-content: center;
+    font-size: 11px; font-weight: 700;
+    flex-shrink: 0; color: white;
+}
+
+.pc-1 .p-badge { background: #e05c5c; }
+.pc-2 .p-badge { background: #d97c2e; }
+.pc-3 .p-badge { background: #c9a82c; }
+.pc-4 .p-badge { background: #4caa5e; }
+.pc-5 .p-badge { background: #3a8fd4; }
+.pc-6 .p-badge { background: #7c62d4; }
+.pc-7 .p-badge { background: #c45c9e; }
+.pc-8 .p-badge { background: #2aabaa; }
+
+.p-info { display: flex; gap: 20px; flex: 1; flex-wrap: wrap; }
+.p-field { display: flex; flex-direction: column; gap: 1px; }
+
+.p-label {
+    font-size: 10px; font-weight: 600;
+    text-transform: uppercase; letter-spacing: 0.5px;
+    color: var(--text-muted);
+}
+
+.p-value { font-size: 14px; font-weight: 700; color: var(--text-primary); }
+
+.btn-add-process { margin-top: 4px; }
+
+.btn-delete {
+    margin-left: auto;
+    background: transparent;
+    color: #cc0000;
+    border: 1.5px solid #cc0000;
+    border-radius: 8px;
+    padding: 4px 12px;
+    font-size: 13px;
+    cursor: pointer;
+}
+.btn-delete:hover { background: #cc0000; color: white; }
+
+.random-controls {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    margin-top: 10px;
+}
+
+.random-controls label { font-size: 0.875rem; color: var(--text-muted); }
+
+.random-controls input {
+    width: 56px;
+    padding: 6px 8px;
+    border-radius: 6px;
+    border: 1.5px solid var(--input-border);
+    background: var(--input-bg);
+    color: var(--text-primary);
+    text-align: center;
+    font-size: 0.875rem;
+    cursor: text;
+}
+
+.btn-random {
+    padding: 7px 14px;
+    background: #5a3ea1;
+    color: #fff;
+    border: none;
+    border-radius: 6px;
+    cursor: pointer;
+    font-size: 0.875rem;
+    transition: background 0.2s;
+}
+.btn-random:hover { background: #7055c2; }

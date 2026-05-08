@@ -1,0 +1,25 @@
+.avg-card {
+    background: var(--surface);
+    border: 1.5px solid var(--border-color);
+    border-radius: 10px;
+    padding: 14px 20px;
+    font-size: 14px;
+}
+
+.avg-label { font-size: 14px; color: var(--text-secondary); margin-bottom: 4px; }
+
+.avg-value { display: block; font-size: 28px; font-weight: 700; margin-bottom: 6px; }
+
+.avg-hint {
+    font-size: 12px; font-weight: 500;
+    border-radius: 5px; display: inline-block; padding: 2px 8px;
+}
+
+.stat-green .avg-value { color: #2e7d43; }
+.stat-green .avg-hint  { background: var(--hint-green-bg); color: #2e7d43; }
+
+.stat-amber .avg-value { color: #8a7010; }
+.stat-amber .avg-hint  { background: var(--hint-amber-bg); color: #8a7010; }
+
+.stat-red   .avg-value { color: #b83232; }
+.stat-red   .avg-hint  { background: var(--hint-red-bg); color: #b83232; }

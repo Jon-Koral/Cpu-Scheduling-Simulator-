@@ -1,0 +1,90 @@
+<!Doctype html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <title>CPU Scheduling Simulator</title>
+    <script defer src="main.js"></script>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+
+<H1>CPU Scheduling Simulator</H1>
+
+<div id="algorithmSelector">
+    <label for="algorithm">Select Algorithm:</label>
+    <select id="algorithm" onchange="handleAlgorithmChange()">
+    <option value="FCFS">FCFS</option>
+        <option value="SJF">SJF</option>
+        <option value="SRTF">SRTF</option>
+        <option value="RR">RR</option>
+        <option value="Priority">Priority</option>
+    </select>
+
+    <!-- Only shown when RR is selected -->
+    <div id="quantum-group">
+        <label for="quantum">Quantum:</label>
+        <input type="number" id="quantum" min="1" max="100" value="2">
+    </div>
+
+    <button id="run-algorithm" onclick="runAlgorithm()">Run Algorithm</button>
+</div>
+
+<!-- Process List -->
+<div id="process-container">
+    <h3>Processes</h3>
+    <div id="process-list"></div>
+    <button class="btn-add-process" onclick="openModal()">+ Add Process</button>
+</div>
+
+<!-- This is my modal to add processes -->
+<div id="modal" onclick="handleOverlayClick(event)">
+    <div id="modal-box">
+        <h2>Add new Process</h2>
+        <div class="modal-field">
+            <label for="arrival-time">Arrival Time</label>
+            <input type="number" id="arrival-time" placeholder="e.g. 0" min="0">
+        </div>
+        <div class="modal-field">
+            <label for="burst-time">Burst Time</label>
+            <input type="number" id="burst-time" placeholder="e.g. 5" min="1">
+        </div>
+        <div class="modal-field">
+            <label for="priority">Priority <span style="font-weight:400">(optional)</span></label>
+            <input type="number" id="priority" placeholder="e.g. 1" min="0">
+        </div>
+        <p class="error" id="modal-error"></p>
+        <div class="modal-buttons">
+            <button class="btn-add" onclick="addProcess()">Add</button>
+            <button class="btn-cancel" onclick="closeModal()">Cancel</button>
+        </div>
+    </div>
+</div>
+
+<!-- Results -->
+<div id="results">
+    <h2>Results</h2>
+
+    <h3>Gantt Chart</h3>
+    <div id="gantt-chart"></div>
+
+    <h3>Process Table</h3>
+    <table>
+        <thead>
+        <tr>
+            <th>Process</th>
+            <th>Arrival Time</th>
+            <th>Burst Time</th>
+            <th>Priority</th>
+            <th>Waiting Time</th>
+            <th>Turnaround Time</th>
+        </tr>
+        </thead>
+        <tbody id="process-table-body"></tbody>
+    </table>
+    <div id="averages"></div>
+</div>
+
+
+
+</body>
+</html>

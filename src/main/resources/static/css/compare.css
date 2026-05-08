@@ -1,0 +1,105 @@
+#mode-toggle {
+    display: flex;
+    border: 1.5px solid var(--border-color);
+    border-radius: 8px;
+    overflow: hidden;
+}
+
+.mode-btn {
+    border: none;
+    border-radius: 0;
+    background: var(--surface);
+    color: var(--text-secondary);
+    padding: 8px 18px;
+    font-size: 14px;
+    cursor: pointer;
+}
+
+.mode-btn-active {
+    background: var(--accent-bg);
+    color: var(--accent-text);
+}
+
+
+#single-controls,
+#compare-controls {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    flex-wrap: wrap;
+}
+
+.compare-label {
+    font-size: 14px;
+    font-weight: 600;
+    color: var(--text-primary);
+}
+
+.algo-checkbox {
+    display: flex;
+    align-items: center;
+    gap: 5px;
+    font-size: 14px;
+    cursor: pointer;
+    background: var(--surface);
+    border: 1.5px solid var(--border-color);
+    border-radius: 8px;
+    padding: 6px 12px;
+}
+
+.algo-checkbox input { cursor: pointer; }
+
+
+.cell-winner {
+    background: var(--winner-bg);
+    color: #2e7d43;
+    font-weight: 700;
+}
+
+#comparison-charts { margin-top: 24px; }
+
+.compare-section {
+    background: var(--surface);
+    border: 1.5px solid var(--border-color);
+    border-radius: 12px;
+    margin-bottom: 16px;
+    overflow: hidden;
+}
+
+.compare-section-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 14px 20px;
+    font-size: 16px;
+    font-weight: 700;
+    cursor: pointer;
+    background: var(--surface-alt);
+    border-bottom: 1.5px solid var(--border-color);
+    user-select: none;
+}
+
+.compare-section-header:hover {
+    background: var(--surface-hover);
+}
+
+.compare-chevron {
+    font-size: 13px;
+    color: var(--text-muted);
+}
+
+.compare-section-body {
+    padding: 20px;
+}
+
+.compare-section-body.collapsed { display: none; }
+
+.compare-section-body h4 {
+    margin: 0 0 10px 0;
+    font-size: 14px;
+    color: var(--text-secondary);
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+}
+
+.compare-process-table { margin-bottom: 0; }

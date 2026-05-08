@@ -1,0 +1,35 @@
+#algorithmSelector {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    margin-bottom: 24px;
+    flex-wrap: wrap;
+}
+
+#run-algorithm {
+    background: var(--accent-bg);
+    color: var(--accent-text);
+    border-color: var(--accent-bg);
+}
+
+#quantum-group { display: none; align-items: center; gap: 8px; }
+#quantum-group.visible { display: flex; }
+
+#process-container {
+    background: var(--surface);
+    border-radius: 12px;
+    padding: 20px;
+    margin-bottom: 24px;
+    border: 1.5px solid var(--border-color);
+}
+
+#process-container h3 { margin-bottom: 12px; }
+
+#results { display: none; }
+#results h2 { margin-bottom: 16px; }
+
+#comparison-results { display: none; }
+#comparison-results h2 { margin-bottom: 16px; }
+#comparison-results h3 { margin-bottom: 12px; }
+
+#averages { display: flex; gap: 16px; }

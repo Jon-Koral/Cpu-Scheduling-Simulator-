@@ -1,0 +1,24 @@
+html { font-size: 125%; }
+
+body {
+    font-family: sans-serif;
+    padding: 24px;
+    background: var(--bg-page);
+    color: var(--text-primary);
+    transition: background 0.25s, color 0.25s;
+}
+
+h1 { margin-bottom: 24px; }
+
+select, button, input {
+    font-size: 14px;
+    border-radius: 8px;
+    border: 1.5px solid var(--border-color);
+    cursor: pointer;
+    background: var(--surface);
+    color: var(--text-primary);
+}
+
+select, button { padding: 8px 14px; }
+
+.error { color: #e05c5c; font-size: 13px; }
